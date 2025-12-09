@@ -15,7 +15,7 @@ a{text-decoration:none;color:inherit}
 main{flex:1 0 auto}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 1rem}
 
-/* Header */
+/* ================= HEADER ================= */
 .site-header{background:var(--header-bg);color:#e5e7eb;position:sticky;top:0;z-index:40}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0;gap:1rem}
 .logo-tag-inner{background:#ffffff;border-radius:999px;padding:4px 10px;border:1px solid #e5e7eb;display:inline-flex;align-items:center;justify-content:center}
@@ -33,90 +33,50 @@ main{flex:1 0 auto}
 .nav-item.open .dropdown-menu{display:block}
 #mobile-nav-toggle{display:none;background:none;border:1px solid #4b5563;border-radius:4px;color:#e5e7eb;padding:.25rem .5rem}
 
-/* Hero */
-<section class="hero-slideshow">
-  <!-- New barrel hero -->
-  <div class="slide active" style="background-image:url('assets/images/hero.jpg')">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Leading supplier of high quality chemical products</h1>
-      </div>
-    </div>
-  </div>
+/* ================= HERO ================= */
 
-  <!-- Flasks -->
-  <div class="slide" style="background-image:url('assets/images/slide2.avif')">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Connect with Zaara Designs for competitive pricing, reliable service and technical expertise</h1>
-      </div>
-    </div>
-  </div>
-
-  <!-- Green drums -->
-  <div class="slide" style="background-image:url('assets/images/slide3.avif')">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>A reputation of trustworthiness built over 30 years</h1>
-      </div>
-    </div>
-  </div>
-</section>
-/* Hero content + text card */
-.hero-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
+.hero-slideshow {
+  position: relative;
+  height: 455px;
+  overflow: hidden;
 }
 
-.hero-text {
-  max-width: 32rem;
-  background: rgba(15, 23, 42, 0.85);  /* dark, slightly transparent */
-  padding: 1.25rem 1.75rem;
-  border-radius: 12px;
-  margin-left: 1.5rem;
-  color: #f9fafb;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.45);
-  transform: translateX(-18px);
+/* The slides */
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
   opacity: 0;
-  animation: slideIn 0.9s ease forwards;
+  transition: opacity .8s ease;
+  filter: brightness(.78) contrast(1.05) saturate(1.08);
 }
 
-.hero-text h1 {
-  margin: 0;
-  font-size: 1.6rem;
-  line-height: 1.3;
+.slide.active {
+  opacity: 1;
 }
 
-/* Slide-in animation for hero text */
-@keyframes slideIn {
-  from {
-    transform: translateX(-28px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.hero-slideshow::after {
-  ...
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.30) 0%,
-    rgba(0,0,0,0.10) 35%,
-    rgba(0,0,0,0.30) 100%
-  );
+/* Overlay text box */
+.hero-caption {
+  position: absolute;
+  bottom: 55px;
+  left: 60px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+  max-width: 650px;
+  background: rgba(0,0,0,0.45);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  line-height: 1.35;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.32);
 }
 
+/* ================= SECTIONS ================= */
+.section-light{padding:3rem 0;background:#f9fafb}
+.section-muted{padding:3rem 0;background:#f3f4f6}
 
-/* Sections */
-.section-light{padding:2.5rem 0;background:#f9fafb}
-.section-muted{padding:2.5rem 0;background:#f3f4f6}
-.page-main{padding:2.5rem 0}
-.page-text p{font-size:1.03rem;color:var(--text-muted);max-width:900px}
-
-/* Welcome section */
+/* ================= WELCOME ================= */
 .welcome-inner{display:flex;align-items:center;gap:2rem}
 .welcome-logo{flex:0 0 auto;display:flex;justify-content:center}
 .welcome-logo-tag{background:#ffffff;border-radius:24px;padding:12px 20px;border:1px solid #e5e7eb;display:inline-flex}
@@ -124,46 +84,23 @@ main{flex:1 0 auto}
 .welcome-text{flex:1 1 auto;text-align:right}
 .welcome-text p{color:var(--text-muted);margin-bottom:1rem}
 .welcome-text h2{margin-top:0}
-
-/* Buttons */
-.btn{display:inline-block;padding:.55rem 1.1rem;border-radius:999px;border:none;cursor:pointer;font-size:.92rem;font-weight:500;background:var(--accent-green);color:#ecfdf3;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 25px rgba(0,0,0,.18);background:#059669}
+.btn{display:inline-block;padding:.55rem 1.1rem;border-radius:999px;border:none;cursor:pointer;font-size:.92rem;font-weight:500;background:var(--accent-green);color:#ecfdf3}
 .btn-outline{background:transparent;border:1px solid var(--accent-green);color:var(--accent-green)}
-.btn-outline:hover{background:var(--accent-green);color:#ecfdf3}
 
-/* Industries */
+/* ================= INDUSTRIES ================= */
 .industries h2{text-align:center;margin-top:0}
 .industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1.25rem}
-.industry-card{background:#ffffff;border-radius:10px;padding:1rem;border:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.industry-card{background:#ffffff;border-radius:10px;padding:1rem;border:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:flex-start;gap:.5rem}
 .industry-card img{width:52px;height:52px;border-radius:16px;object-fit:contain;background:#f3f4f6;padding:.35rem}
-.industry-card h3{margin:.2rem 0}
-.industry-card p{margin:0;color:var(--text-muted);font-size:.9rem}
-.industry-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(15,23,42,.16);border-color:var(--accent-green)}
 
-/* Companies we serve */
+/* ================= COMPANIES ================= */
 .companies h2{text-align:center;margin-top:0}
 .companies-logos{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;align-items:center;margin-top:1.25rem}
 .company-logo-wrap{flex:0 0 auto;max-height:70px;display:flex;align-items:center}
 .company-logo-wrap img{max-height:70px;max-width:150px;object-fit:contain}
 
-/* Products grid */
-.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:1.5rem}
-.product-card{background:#ffffff;border-radius:10px;padding:1rem;border:1px solid #e5e7eb;display:flex;flex-direction:column;gap:.5rem;align-items:center;text-align:center}
-.product-card h3{margin:0;font-size:.98rem}
-.product-image-wrap{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f9fafb;border-radius:8px}
-.product-image-wrap img{max-width:100%;max-height:100%;object-fit:contain}
-
-/* Category links */
-.category-links{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
-
-/* Contact */
-.contact-form{display:grid;gap:.75rem;max-width:600px;margin-top:1rem}
-.contact-form label{font-size:.92rem;color:var(--text-main);display:flex;flex-direction:column;gap:.25rem}
-.contact-form input,.contact-form textarea{padding:.5rem;border-radius:6px;border:1px solid #d1d5db;font:inherit}
-.form-status{font-size:.88rem;color:var(--accent-green);min-height:1.2em}
-
-/* Footer */
-.site-footer{background:var(--footer-bg);color:#9ca3af;padding:2rem 0 1.5rem;margin-top:2rem}
+/* ================= FOOTER ================= */
+.site-footer{background:var(--footer-bg);color:#9ca3af;padding:2rem 0 1.5rem;margin-top:2rem;border-top:6px solid #00684e}
 .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:1.25rem;font-size:.9rem}
 .footer-grid h4{color:#e5e7eb;margin-top:0}
 .footer-grid a{color:#9ca3af}
@@ -171,175 +108,18 @@ main{flex:1 0 auto}
 .footer-grid ul{list-style:none;padding:0;margin:0}
 .footer-grid li{margin-bottom:.25rem}
 address{font-style:normal}
-copyright{margin-top:1rem;font-size:.85rem;color:#6b7280}
 
-/* Responsive */
+/* ================= RESPONSIVE ================= */
 @media (max-width:900px){
-  .main-nav{display:none;flex-direction:column;align-items:flex-start;background:#020617;position:absolute;left:0;right:0;top:100%;padding:.75rem 1rem;border-bottom:1px solid #111827}
+  .main-nav{display:none;flex-direction:column;background:#020617;position:absolute;left:0;right:0;top:100%;padding:.75rem 1rem}
   .main-nav.open{display:flex}
   #mobile-nav-toggle{display:block}
   .header-inner{position:relative}
-  .hero-slideshow{height:260px}
-  .hero-text{max-width:100%;margin:0 auto}
+  .hero-slideshow{height:320px}
+  .hero-caption{font-size:1.2rem;left:20px;right:20px;}
   .welcome-inner{flex-direction:column}
   .welcome-text{text-align:center}
   .companies-logos{justify-content:center}
   .footer-grid{grid-template-columns:1fr}
-  .products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:640px){
-  .products-grid{grid-template-columns:1fr}
-}
-/* CONTACT MAP */
-.contact-map iframe {
-  display: block;
-  width: 100%;
-  height: 350px;
 }
 
-/* CONTACT SUMMARY (GREEN STRIP WITH 3 CARDS) */
-.contact-summary {
-  background: #00A878;
-  padding: 3rem 0;
-  color: #ffffff;
-}
-
-.contact-cards-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 2rem;
-}
-
-.contact-card {
-  flex: 1;
-  background: rgba(0,0,0,0.10);
-  padding: 1.5rem 1rem;
-  border-radius: 15px;
-  text-align: center;
-}
-
-.contact-card h2 {
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
-}
-
-.contact-card p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-/* CONTACT FORM SPACING */
-.contact-form-section h1 {
-  text-align: center;
-}
-
-.contact-form-section > p {
-  text-align: center;
-  color: #6b7280;
-  max-width: 620px;
-  margin: 0.25rem auto 1.25rem;
-}
-
-/* RESPONSIVE: STACK CARDS ON SMALL SCREENS */
-@media (max-width: 900px) {
-  .contact-cards-row {
-    flex-direction: column;
-  }
-}
-/* ================= FINAL POLISH ================= */
-
-/* Softer background + nicer typography */
-body {
-  background: #f3f4f6;
-  color: #111827;
-}
-
-h1, h2, h3 {
-  letter-spacing: 0.02em;
-}
-
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-h2 {
-  font-size: 1.4rem;
-}
-
-/* Give main content more breathing room */
-.page-main {
-  padding-top: 2.5rem;
-  padding-bottom: 3rem;
-}
-
-/* Welcome section – make it feel more “hero-like” */
-.welcome-section {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-}
-
-/* Product cards – subtle hover and depth */
-.product-card {
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
-  border-color: #00A878;
-}
-
-/* Contact summary cards – more premium feel */
-.contact-summary {
-  margin-top: 0;
-}
-
-.contact-card {
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
-}
-
-/* Footer – pull it visually closer to content */
-.site-footer {
-  margin-top: 0;
-}
-
-/* Optional: slightly tighter width on very large screens */
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1150px;
-  }
-}
-/* ========== Micro Polish ========== */
-
-/* Reduce map-to-green-strip gap */
-.contact-map iframe {
-  margin-bottom: -4px;
-}
-
-/* Equal height for all three cards, perfect alignment */
-.contact-card {
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Make address more readable */
-.contact-card p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* Footer separation line (subtle) */
-.site-footer {
-  border-top: 6px solid #00684e;
-}
-/* Contact page: reduce bottom padding so footer hugs closer */
-.contact-page-main {
-  padding-bottom: 1.5rem;
-}
