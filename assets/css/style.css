@@ -274,3 +274,7 @@ h2 {
 .site-footer {
   border-top: 6px solid #00684e;
 }
+/* Contact page: reduce bottom padding so footer hugs closer */
+.contact-page-main {
+  padding-bottom: 1.5rem;
+}
