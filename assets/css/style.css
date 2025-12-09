@@ -183,3 +183,69 @@ copyright{margin-top:1rem;font-size:.85rem;color:#6b7280}
     flex-direction: column;
   }
 }
+/* ================= FINAL POLISH ================= */
+
+/* Softer background + nicer typography */
+body {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+h1, h2, h3 {
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+/* Give main content more breathing room */
+.page-main {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+/* Welcome section – make it feel more “hero-like” */
+.welcome-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Product cards – subtle hover and depth */
+.product-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+  border-color: #00A878;
+}
+
+/* Contact summary cards – more premium feel */
+.contact-summary {
+  margin-top: 0;
+}
+
+.contact-card {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
+
+/* Footer – pull it visually closer to content */
+.site-footer {
+  margin-top: 0;
+}
+
+/* Optional: slightly tighter width on very large screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1150px;
+  }
+}
