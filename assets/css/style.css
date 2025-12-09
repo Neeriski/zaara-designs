@@ -41,14 +41,26 @@ main{flex:1 0 auto}
 }
 
 /* Each slide image */
+.hero-slideshow {
+  position: relative;
+  overflow: hidden;
+  height: 340px;
+}
+
+/* Each slide image */
 .slide {
   position: absolute;
   inset: 0;
-  background-size: cover;              /* Always crop perfectly */
-  background-position: center center;  /* Balance image section */
+  background-size: cover;
+  background-position: center center;
   opacity: 0;
   transition: opacity .8s ease;
-  filter: brightness(0.78) contrast(1.08) saturate(1.05); /* Premium look */
+  filter: brightness(0.78) contrast(1.08) saturate(1.05);
+}
+
+/* Make the visible slide actually visible */
+.hero-slideshow .slide.active {
+  opacity: 1;
 }
 
 /* Gradient overlay for polished corporate look */
