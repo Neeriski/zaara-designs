@@ -249,3 +249,28 @@ h2 {
     max-width: 1150px;
   }
 }
+/* ========== Micro Polish ========== */
+
+/* Reduce map-to-green-strip gap */
+.contact-map iframe {
+  margin-bottom: -4px;
+}
+
+/* Equal height for all three cards, perfect alignment */
+.contact-card {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Make address more readable */
+.contact-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Footer separation line (subtle) */
+.site-footer {
+  border-top: 6px solid #00684e;
+}
