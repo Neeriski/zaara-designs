@@ -34,48 +34,34 @@ main{flex:1 0 auto}
 #mobile-nav-toggle{display:none;background:none;border:1px solid #4b5563;border-radius:4px;color:#e5e7eb;padding:.25rem .5rem}
 
 /* Hero */
-.hero-slideshow {
-  position: relative;
-  overflow: hidden;
-  height: 340px;
-}
+<section class="hero-slideshow">
+  <!-- New barrel hero -->
+  <div class="slide active" style="background-image:url('assets/images/hero.jpg')">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Leading supplier of high quality chemical products</h1>
+      </div>
+    </div>
+  </div>
 
-/* Each slide image */
-.hero-slideshow {
-  position: relative;
-  overflow: hidden;
-  height: 340px;
-}
+  <!-- Flasks -->
+  <div class="slide" style="background-image:url('assets/images/slide2.avif')">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Connect with Zaara Designs for competitive pricing, reliable service and technical expertise</h1>
+      </div>
+    </div>
+  </div>
 
-/* Each slide image */
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center center;
-  opacity: 0;
-  transition: opacity .8s ease;
-  filter: brightness(0.78) contrast(1.08) saturate(1.05);
-}
-
-/* Make the visible slide actually visible */
-.hero-slideshow .slide.active {
-  opacity: 1;
-}
-
-/* Gradient overlay for polished corporate look */
-.hero-slideshow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.15) 35%,
-    rgba(0,0,0,0.35) 100%
-  );
-  pointer-events: none;
-}
+  <!-- Green drums -->
+  <div class="slide" style="background-image:url('assets/images/slide3.avif')">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>A reputation of trustworthiness built over 30 years</h1>
+      </div>
+    </div>
+  </div>
+</section>
 
 /* Sections */
 .section-light{padding:2.5rem 0;background:#f9fafb}
