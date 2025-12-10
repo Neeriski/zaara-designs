@@ -10,19 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ================== DROPDOWN ================== */
-  const dropdown = document.querySelector('.nav-item.dropdown');
-  const dropdownToggle = dropdown ? dropdown.querySelector('.dropdown-toggle') : null;
+/* ================== DROPDOWN (FIXED) ================== */
+document.querySelectorAll('.nav-item.dropdown').forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
 
-  if (dropdown && dropdownToggle) {
-    dropdownToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle('open');
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    // Close all other dropdowns
+    document.querySelectorAll('.nav-item.dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('open');
     });
 
-    document.addEventListener('click', () => {
-      dropdown.classList.remove('open');
-    });
-  }
+    dropdown.classList.toggle('open');
+  });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-item.dropdown').forEach(dropdown => {
+    dropdown.classList.remove('open');
+  });
+});
+
 
   /* ================== HERO SLIDER ================== */
   const slides = document.querySelectorAll('.hero-slideshow .slide');
