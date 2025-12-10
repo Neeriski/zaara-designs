@@ -528,3 +528,153 @@ h2 {
     width: min(90vw, var(--max-width));
   }
 }
+/* =========================
+   Contact section: fixes
+   Paste this at the END of assets/css/style.css
+   ========================= */
+
+/* Full-bleed map container (keeps neat side gutters) */
+.contact-map-section {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+}
+
+/* Ensure the map sits centered with 5% gutters on desktop and full width on mobile */
+.contact-map {
+  width: 100%;
+}
+.contact-map iframe {
+  display: block;
+  width: 90%;              /* 5% left + 5% right gutters */
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 420px;           /* taller map for nicer visual balance */
+  border: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Reduce gap between map and green strip */
+.contact-map iframe { margin-bottom: -6px; }
+
+/* Green summary band (Address / Phone / Email) — full width but inner content centered */
+.contact-summary {
+  background: #00A878;
+  padding: 2.25rem 5%;     /* left/right gutters match the map (5%) */
+  color: #ffffff;
+  margin: 0;               /* remove added outer white space */
+}
+
+/* Center and constrain card row */
+.contact-summary .contact-cards-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Card styling — higher contrast and readable */
+.contact-card {
+  flex: 1;
+  background: rgba(0,0,0,0.06);   /* subtle darker card on green */
+  padding: 2rem 1.4rem;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  color: #ffffff;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Headings/paragraphs inside cards */
+.contact-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.15rem;
+  color: #ffffff;
+  line-height: 1.15;
+}
+.contact-card p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.95);
+  opacity: 0.95;
+}
+
+/* Small decorative underline used previously — keep it visible */
+.contact-card .card-underline {
+  width: 60px;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  margin: 0.9rem auto 0;
+  border-radius: 2px;
+}
+
+/* Reduce the large white margins around the contact block on inner pages */
+.contact-page-main {
+  padding-top: 0.5rem;     /* pull content up so map touches header area more naturally */
+  padding-bottom: 1.5rem;  /* keep footer spacing reasonable */
+  background: transparent;
+}
+
+/* Make sure the contact-summary container doesn't add extra white below on desktop */
+.contact-summary + .site-footer {
+  margin-top: 0;
+}
+
+/* Responsive: stack the cards and make map full width on smaller screens */
+@media (max-width: 900px) {
+
+  .contact-map iframe {
+    width: calc(100% - 32px);  /* small side padding on mobile */
+    margin: 0 16px;
+    height: 300px;
+  }
+
+  .contact-summary {
+    padding: 1.5rem 4%;
+  }
+
+  .contact-summary .contact-cards-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-card {
+    min-height: auto;
+    padding: 1rem 1rem;
+  }
+}
+
+/* Small extra polish for phone sized displays */
+@media (max-width: 420px) {
+  .contact-map iframe {
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    height: 260px;
+  }
+  .contact-card h2 { font-size: 1rem; }
+  .contact-card p { font-size: 0.95rem; }
+}
+/* Inner pages: centered heading + centered paragraph block */
+.page-main h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 2.1rem;
+  line-height: 1.25;
+}
+
+/* paragraph block centered with comfortable max-width for readability */
+.page-text p {
+  margin: 0 auto 1rem;      /* centers the paragraph block */
+  max-width: 900px;         /* limits line length */
+  text-align: center;       /* center text inside the block */
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
