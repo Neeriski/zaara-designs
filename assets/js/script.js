@@ -1,54 +1,87 @@
-document.addEventListener('DOMContentLoaded', function(){
-  // year
-  document.querySelectorAll('[id^="year"]').forEach(el => el.textContent = new Date().getFullYear());
-
-  // mobile nav
+document.addEventListener('DOMContentLoaded', () => {
+  /* ================== MOBILE NAV ================== */
   const mobileToggle = document.getElementById('mobile-nav-toggle');
-  const nav = document.querySelector('.main-nav');
-  if(mobileToggle && nav){
+  const mainNav = document.querySelector('.main-nav');
+
+  if (mobileToggle && mainNav) {
     mobileToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+      mainNav.classList.toggle('open');
     });
   }
 
-  // dropdown
-  const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-  dropdowns.forEach(dd => {
-    const btn = dd.querySelector('.dropdown-toggle');
-    if(!btn) return;
-    btn.addEventListener('click', (e) => {
+  /* ================== DROPDOWN ================== */
+  const dropdown = document.querySelector('.nav-item.dropdown');
+  const dropdownToggle = dropdown ? dropdown.querySelector('.dropdown-toggle') : null;
+
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      dd.classList.toggle('open');
+      dropdown.classList.toggle('open');
     });
-  });
-  document.addEventListener('click', () => {
-    dropdowns.forEach(dd => dd.classList.remove('open'));
-  });
 
-  // hero slider
-  const slides = document.querySelectorAll('.hero-slideshow .slide');
-  if(slides.length > 1){
-    let index = 0;
-    setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 6000);
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+    });
   }
 
-  // contact form (demo)
-  const form = document.getElementById('contact-form');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      const status = document.getElementById('form-status');
-      if(status){
-        status.textContent = 'Sending... (demo only)';
-        setTimeout(() => {
-          status.textContent = 'Message sent — we will get back to you soon.';
-        }, 800);
-      }
-      form.reset();
-    });
+  /* ================== HERO SLIDER ================== */
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const dots = document.querySelectorAll('.hero-dots .hero-dot');
+  const prevBtn = document.querySelector('.hero-arrow-prev');
+  const nextBtn = document.querySelector('.hero-arrow-next');
+
+  if (slides.length > 0) {
+    let currentIndex = 0;
+    const INTERVAL = 6000; // ms
+    let timer = null;
+
+    const goToSlide = (index) => {
+      slides[currentIndex].classList.remove('active');
+      if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides[currentIndex].classList.add('active');
+      if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+    };
+
+    const startTimer = () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, INTERVAL);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+        startTimer(); // reset timer after manual nav
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+        startTimer();
+      });
+    }
+
+    if (dots.length) {
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          startTimer();
+        });
+      });
+    }
+
+    // start autoplay
+    startTimer();
+  }
+
+  /* ================== FOOTER YEAR ================== */
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 });
